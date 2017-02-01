@@ -1,0 +1,73 @@
+/***/
+/*The asterisk symbol will target every single element on the page. Use this to zero out the margin and padding.
+While great for quick and dirty testing method, do not use in production.*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/*#X*/
+/*Allows selection by id, be cautious when using this selector. There are other alternatives to this purpose, ex. tag name or psuedo class.
+This selector is very rigid and do not allow for reuse.*/
+#container {
+	width: 960px;
+	margin: auto;
+}
+
+/*.X*/
+/*This is a class selector. Very similiar to #selection is that you can target multiple elements rather than singling out one particular element.
+The isolated #selection is for searching for a needle in a haystack.*/
+.error {
+	color: red;
+}
+
+/*X Y*/
+/*When you need to be more specific with your selectors, you use these. 
+For example, what if, rather than targeting all anchor tags, you only need to target the anchors which are within an unordered list? 
+This is specifically when you'd use a descendant selector.*/
+li a {
+	text-decoration: none;
+}
+
+/*X*/
+/*What if you want to target all elements on a page, according to their type, rather than an id or classname? 
+Keep it simple, and use a type selector. If you need to target all unordered lists, use ul {}.*/
+a { color: red; }
+ul { margin-left: 0; }
+
+/*X:visited and X:link*/
+/*We use the :link pseudo-class to target all anchors tags which have yet to be clicked on.
+Alternatively, we also have the :visited pseudo class, which, as you'd expected, allows us to apply specific styling to only the anchor tags on the page which have been clicked on, or visited.*/
+a:link { color: red; }
+a:visted { color: purple; }
+
+/*X+Y*/
+/*This is referred to as an adjacent selector. 
+It will select only the element that is immediately preceded by the former element. 
+In this case, only the first paragraph after each ul will have red text.*/
+ul + p {
+   color: red;
+}
+
+/*X > Y*/
+/*A selector of #container > ul will only target the uls which are direct children of the div with an id of container. It will not target, for instance, the ul that is a child of the first li.
+For this reason, there are performance benefits in using the child combinator. In fact, it's recommended particularly when working with JavaScript-based CSS selector engines.*/
+<div id="container">
+   <ul>
+      <li> List Item
+        <ul>
+           <li> Child </li>
+        </ul>
+      </li>
+      <li> List Item </li>
+      <li> List Item </li>
+      <li> List Item </li>
+   </ul>
+</div>
+
+/*X~Y*/
+/*This sibling combinator is similar to X + Y, however, it's less strict. 
+While an adjacent selector (ul + p) will only select the first element that is immediately preceded by the former selector, this one is more generalized. It will select, referring to our example above, any p elements, as long as they follow a ul.*/
+ul ~ p {
+   color: red;
+}
