@@ -1,0 +1,37 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Specificity</title>
+ 	<style type="text/css">
+ 	/*List if priorities, top having the lowest priority*/
+ 	/*How this works is that the selector type is assigned a number to specify priority*/
+ 		body {
+ 			color: red;
+ 		}
+ 		ul {
+ 			color: blue;
+ 		}
+ 		li {
+ 			color: orange;
+ 		}
+ 		.highlight{
+ 			color: green;
+ 		}
+ 		#special {
+ 			color: pink;
+ 		}
+ 	</style>
+ </head>
+ <body>
+
+ <p>Hello!!!!</p>
+
+ <ul>
+ 	<li class="highlight" id="special">John</li>
+ 	<li>Paul</li>
+ 	<li>George</li>
+ 	<li class="highlight">Ringo</li>
+ </ul>
+ 
+ </body>
+ </html>
